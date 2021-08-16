@@ -66,6 +66,7 @@ const forEachTwoToThe = (arr) => {
   arr.forEach((num) => {
     output.push(Math.pow(2, num));
   });
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
