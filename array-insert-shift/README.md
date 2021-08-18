@@ -3,8 +3,7 @@
 This challenge requires you to insert a given number into the middle of an array
 
 ## Whiteboard Process
-
-![whiteboard image](array-insert-shift.jpg "Whiteboard Image)
+<img src="./array-insert-shift.jpg" alt="image text" title="Whiteboard image" />
 
 ## Approach & Efficiency
 
