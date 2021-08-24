@@ -36,4 +36,23 @@ describe("linked list", () => {
         list.add("test");
         expect(typeof list.printList()).toBe("object");
     })
+
+    it("should be able to append an element", () => {
+        let testList = new LinkedList();
+        testList.add("second")
+        testList.add("first")
+        testList.append("last")
+        let arr = testList.printList();
+        expect(arr[2]).toBe("last")
+    })
+
+    it("should be able to insert before", () => {
+        let testList = new LinkedList();
+        testList.add("first")
+        testList.add("second")
+        testList.append("last")
+        testList.insertBefore("second", "penultimate");
+        let arr = testList.printList();
+        expect(arr[1]).toBe("penultimate");
+    })
 })
