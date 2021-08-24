@@ -38,48 +38,53 @@ class LinkedList {
     }
 
 
-    insertAt(element, index) {
-        if (index < 0 || index > this.size)
-            return console.log("Please enter a valid index.");
-        else {
-
-            let node = new Node(element);
-            let curr, prev;
-
-            curr = this.head;
+    append(element) {
+        let node = new Node(element)
+        //already pointing to null
+        let current = this.head;
 
 
-            if (index == 0) {
-                node.next = this.head;
-                this.head = node;
+        while (current.next) {
+            current = current.next
+        }
+        //current should be pointing at the last element
+        current.next = node;
+
+    }
+
+    insertBefore(value, newValue) {
+
+        //I dont think this handles the case that the value to insert before == header TODO
+
+        let newNode = new Node(newValue)
+        let current = this.head;
+        let prev;
+        while (current.next) {
+            if (current.element === value) {
+                // do the switching logic
+                prev.next = newNode;
+                newNode.next = current
+                return;
             } else {
-                curr = this.head;
-                let it = 0;
-
-                while (it < index) {
-                    it++;
-                    prev = curr;
-                    curr = curr.next;
-                }
-
-                node.next = curr;
-                prev.next = node;
+                // do the incrementing logic
+                prev = current;
+                current = current.next;
             }
-            this.size++;
+
         }
     }
 
-
-
+    insertAfter(value, newValue) {
+        let newNode = new Node(newValue)
+        let current = this.head;
+    }
 
     hasElement(element) {
-        let count = 0;
         let current = this.head;
         while (current != null) {
 
             if (current.element === element)
                 return true;
-            count++;
             current = current.next;
         }
 
@@ -94,7 +99,7 @@ class LinkedList {
         let items = [];
         while (curr) {
             items.push(curr.element);
-
+            curr = curr.next
         }
         return items;
     }
@@ -111,6 +116,8 @@ class LinkedList {
     }
 
 }
+
+
 
 
 module.exports = LinkedList
