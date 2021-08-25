@@ -48,11 +48,11 @@ describe("linked list", () => {
 
     it("should be able to insert before", () => {
         let testList = new LinkedList();
-        testList.add("first")
+        testList.add("last")
         testList.add("second")
-        testList.append("last")
-        testList.insertBefore("second", "penultimate");
+        testList.add("first")
+        testList.insertBefore("last", "penultimate");
         let arr = testList.printList();
-        expect(arr[1]).toBe("penultimate");
+        expect(arr[2]).toBe("penultimate")
     })
 })
