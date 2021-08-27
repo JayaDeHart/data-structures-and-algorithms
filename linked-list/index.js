@@ -31,7 +31,13 @@ class LinkedList {
 
 
     append(element) {
+
+
         let node = new Node(element)
+        if (this.head == null) {
+            this.head = node;
+            return;
+        }
         //already pointing to null
         let current = this.head;
 
@@ -136,14 +142,37 @@ class LinkedList {
     }
 
 
+
+
 }
 
-let testList = new LinkedList();
-testList.add("last")
-testList.add("second")
-testList.add("first")
-testList.insertBefore("last", "penultimate");
-console.log(testList.toString())
+function zipLists(list1, list2) {
+    let current1 = list1.head;
+    let current2 = list2.head;
+    let output = new LinkedList();
+    while (current1 && current2) {
+        output.append(current1.element)
+        output.append(current2.element)
+        current1 = current1.next
+        current2 = current2.next
+    }
+    return output
+
+}
 
 
-module.exports = LinkedList
+let list1 = new LinkedList();
+let list2 = new LinkedList();
+list1.add("1")
+list1.add("1")
+list2.add("2")
+list2.add("2")
+const zippedList = zipLists(list1, list2);
+let arr = zippedList.printList();
+console.log(arr);
+
+module.exports =
+{
+    LinkedList,
+    zipLists
+}
