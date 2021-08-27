@@ -1,5 +1,5 @@
 const { it, expect } = require("@jest/globals")
-const LinkedList = require("../index")
+const { LinkedList } = require("../index")
 
 describe("linked list", () => {
     it("should instantiate an empty list", () => {
