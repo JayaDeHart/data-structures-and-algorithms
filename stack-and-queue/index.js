@@ -90,7 +90,44 @@ class Stack {
 }
 
 
+class PseudoQueue {
+    constructor() {
+        this.stack1 = new Stack();
+        this.stack2 = new Stack();
+    }
+    enqueue(value) {
+        this.stack1.push(value)
+    }
+
+    dequeue() {
+        //transfer everything over so its in the right order
+        //pop off the top
+        //transfer everything back
+        if (this.stack1.length == 0) {
+            throw new Error("You can't dequeue an empty queueue")
+        }
+        //transfer to stack 2 and switch orders
+        let l = this.stack1.length
+        for (let x = 0; x < l; x++) {
+            let y = this.stack1.pop();
+            this.stack2.push(y);
+        }
+
+        //store the value we're dequeing
+        let output = this.stack2.pop();
+
+        //transfer everything back to stack 1, restoring the original order
+        let l2 = this.stack2.length;
+        for (let z = 0; z < l2; z++) {
+            let a = this.stack2.pop();
+            this.stack1.push(a);
+        }
+        return output;
+    }
+}
+
 module.exports = {
     Stack,
-    Queue
+    Queue,
+    PseudoQueue
 }
