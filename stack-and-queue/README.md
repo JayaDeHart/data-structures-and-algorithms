@@ -20,7 +20,7 @@ Create a javascript pseudoqueue class that can correctly queue and dequeue.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Stacks and Queues Pt 2: Animal Shelter
+# Stacks and Queues Pt 3: Animal Shelter
 Create a custom queue implementation that can take the first one of a specified type out of the queue.
 
 
