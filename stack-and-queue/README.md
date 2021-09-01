@@ -18,4 +18,13 @@ Create a javascript pseudoqueue class that can correctly queue and dequeue.
 ## Whiteboard 
 ![pqwhiteboard](https://user-images.githubusercontent.com/71462092/131438779-050b979d-0490-4c9a-904c-db1dc98f60b5.jpg)
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Stacks and Queues Pt 2: Animal Shelter
+Create a custom queue implementation that can take the first one of a specified type out of the queue.
+
+
+## Whiteboard Process
+![shelterwhiteboard](https://user-images.githubusercontent.com/71462092/131756597-8a0ef157-5c07-4841-a8c0-e1d90094ad1d.jpg)
+
 
