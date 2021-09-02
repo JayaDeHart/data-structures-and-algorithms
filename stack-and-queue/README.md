@@ -28,3 +28,17 @@ Create a custom queue implementation that can take the first one of a specified 
 ![shelterwhiteboard](https://user-images.githubusercontent.com/71462092/131756597-8a0ef157-5c07-4841-a8c0-e1d90094ad1d.jpg)
 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Stacks and Queues Pt 4: Bracket Validator
+Create a function that uses a stack to validate a string of brackets
+
+
+## Whiteboard Process
+![bracketwhiteboard](https://user-images.githubusercontent.com/71462092/131780596-984f7186-15f0-43cc-b34d-0074239137a8.jpg)
+
+## Process
+You put all the openers on the stack.
+If its a closer, check if its the right one
+ez pz
+
