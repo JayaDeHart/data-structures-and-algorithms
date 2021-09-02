@@ -77,7 +77,7 @@ class Stack {
 
   peek() {
     if (this.length === 0) {
-      throw new Error("cannot look at an empty queue");
+      throw new Error("cannot look at an empty stack");
     }
     return this.top;
   }
@@ -170,9 +170,48 @@ class AnimalShelter {
   }
 }
 
+function validateBrackets(string) {
+  //initialize the stack
+  //dissasemble the string
+  let stack = new Stack();
+  let array = string.split("");
+
+  //create pseudoregexes
+  let brackets = [")", "}", "]", "(", "{", "["];
+  let openers = ["(", "{", "["];
+  let pairs = ["()", "{}", "[]"];
+
+  //feed the string into stack
+  for (let x = 0; x < array.length; x++) {
+    if (brackets.includes(array[x])) {
+      //if its an opener, push it on
+      if (openers.includes(array[x])) {
+        stack.push(array[x]);
+      }
+      //if its a closer, we have to check if it matches
+      if (!openers.includes(array[x])) {
+        //assemble the pair
+        let opener = stack.peek();
+        let pair = opener + array[x];
+        if (pairs.includes(pair)) {
+          //if it matches, we pop() to take the matching pair out
+          stack.pop();
+        }
+        if (!pairs.includes(pair)) {
+          //if it doesn't match, then the whole string is a bust and we return false
+          return false;
+        }
+      }
+    }
+  }
+  //if we make it all the way through, that means the whole string matches and we can return true
+  return true;
+}
+
 module.exports = {
   Stack,
   Queue,
   PseudoQueue,
   AnimalShelter,
+  validateBrackets,
 };
