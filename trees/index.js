@@ -60,6 +60,27 @@ class BinaryTree {
     _watch(this.root);
     return output;
   }
+
+  findMax() {
+    if (!this.root) {
+      return new Error("Cannot find the max value of an empty tree");
+    }
+    let max = 0;
+    function _search(node) {
+      if (node.value > max) {
+        max = node.value;
+        console.log(max);
+      }
+      if (node.left) {
+        _search(node.left);
+      }
+      if (node.right) {
+        _search(node.right);
+      }
+    }
+    _search(this.root);
+    return max;
+  }
 }
 
 class BinarySearchTree extends BinaryTree {
@@ -104,11 +125,9 @@ class BinarySearchTree extends BinaryTree {
         return;
       }
       if (value < node.value) {
-        console.log("going left");
         _search(node.left);
       }
       if (value > node.value) {
-        console.log("going right");
         _search(node.right);
       }
     }
