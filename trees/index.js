@@ -69,7 +69,6 @@ class BinaryTree {
     function _search(node) {
       if (node.value > max) {
         max = node.value;
-        console.log(max);
       }
       if (node.left) {
         _search(node.left);
@@ -80,6 +79,26 @@ class BinaryTree {
     }
     _search(this.root);
     return max;
+  }
+
+  traverse_breadth() {
+    if (!this.root) {
+      return new Error("Cannot find the max value of an empty tree");
+    }
+    let output = [];
+    let queue = [];
+    queue.push(this.root);
+    while (queue[0]) {
+      if (queue[0].left) {
+        queue.push(queue[0].left);
+      }
+      if (queue[0].right) {
+        queue.push(queue[0].right);
+      }
+      let elem = queue.shift();
+      output.push(elem.value);
+    }
+    return output;
   }
 }
 
@@ -135,6 +154,28 @@ class BinarySearchTree extends BinaryTree {
     return bool;
   }
 }
+
+let tree = {
+  value: 2,
+  left: {
+    value: 7,
+    left: { value: 2, left: null, right: null },
+    right: {
+      value: 6,
+      left: { value: 5, left: null, right: null },
+      right: { value: 11, left: null, right: null },
+    },
+  },
+  right: {
+    value: 5,
+    left: null,
+    right: {
+      value: 9,
+      left: { value: 4, left: null, right: null },
+      right: null,
+    },
+  },
+};
 
 module.exports = {
   Node,
