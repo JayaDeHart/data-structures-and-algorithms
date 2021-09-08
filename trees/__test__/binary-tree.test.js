@@ -8,7 +8,7 @@ describe("Binary Tree", () => {
     }).toThrow();
   });
 
-  it("should be able to traverse a tree", () => {
+  it("should be able to traverse a tree depth first", () => {
     let tree = {
       value: 10,
       left: {
@@ -36,5 +36,33 @@ describe("Binary Tree", () => {
     let bt = new BinaryTree(tree);
     let max = bt.findMax();
     expect(max).toBe(100);
+  });
+
+  it("should be able to traverse a tree breadth first", () => {
+    let tree = {
+      value: 2,
+      left: {
+        value: 7,
+        left: { value: 2, left: null, right: null },
+        right: {
+          value: 6,
+          left: { value: 5, left: null, right: null },
+          right: { value: 11, left: null, right: null },
+        },
+      },
+      right: {
+        value: 5,
+        left: null,
+        right: {
+          value: 9,
+          left: { value: 4, left: null, right: null },
+          right: null,
+        },
+      },
+    };
+
+    let bt = new BinaryTree(tree);
+    let output = bt.traverse_breadth();
+    expect(output).toEqual([2, 7, 5, 2, 6, 9, 5, 11, 4]);
   });
 });
