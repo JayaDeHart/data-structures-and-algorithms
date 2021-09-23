@@ -46,7 +46,47 @@ function mergeSort(array) {
   return helper(mergeSort(firstHalf), mergeSort(secondHalf));
 }
 
+function swap(arr, lowIndex, highIndex) {
+  let temp = arr[lowIndex];
+  arr[lowIndex] = arr[highIndex];
+  arr[highIndex] = temp;
+}
+function partition(arr, low, high) {
+  let pivot = arr[Math.floor((high + low) / 2)];
+  let i = low;
+  let j = high;
+  while (i <= j) {
+    while (arr[i] < pivot) {
+      i++;
+    }
+    while (arr[j] > pivot) {
+      j--;
+    }
+    if (i <= j) {
+      swap(arr, i, j);
+      i++;
+      j--;
+    }
+  }
+  return i;
+}
+
+function quickSort(arr, low, high) {
+  let index;
+  if (arr.length > 1) {
+    index = partition(arr, low, high);
+    if (low < index - 1) {
+      quickSort(arr, low, index - 1);
+    }
+    if (index < high) {
+      quickSort(arr, index, high);
+    }
+  }
+  return arr;
+}
+
 module.exports = {
   insertionSort,
   mergeSort,
+  quickSort,
 };
