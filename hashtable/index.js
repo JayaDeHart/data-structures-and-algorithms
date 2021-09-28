@@ -40,6 +40,22 @@ class HashTable {
   }
 }
 
+function findDuplicates(str) {
+  let array = str.split(" ");
+  let HT = new HashTable();
+  let ans = "No duplicates";
+  array.forEach((item) => {
+    if (HT.get(item) != null) {
+      ans = item;
+    } else {
+      HT.set(item, item);
+    }
+  });
+
+  return ans;
+}
+
 module.exports = {
   HashTable,
+  findDuplicates,
 };
