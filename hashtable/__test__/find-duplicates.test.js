@@ -7,4 +7,9 @@ describe("Find Duplicates", () => {
     );
     expect(ans).toBe("a");
   });
+
+  it("Should return a message if no duplicates", () => {
+    let ans = findDuplicates("a b c d e");
+    expect(ans).toBe("No duplicates");
+  });
 });
