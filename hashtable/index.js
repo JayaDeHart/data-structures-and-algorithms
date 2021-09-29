@@ -1,3 +1,5 @@
+const { BinaryTree } = require("../trees/index");
+
 class HashTable {
   constructor() {
     this.holder = new Array(127);
@@ -14,6 +16,7 @@ class HashTable {
   set(key, value) {
     const index = this._hash(key);
     if (this.holder[index]) {
+      console.log("repeating");
       for (let x = 0; x < this.holder[index].length; x++) {
         if (this.holder[index][x][0] === key) {
           this.holder[index][x][1] = value;
@@ -55,7 +58,26 @@ function findDuplicates(str) {
   return ans;
 }
 
+function findBTDuplicates(tree1, tree2) {
+  let t1 = new BinaryTree(tree1);
+  let t2 = new BinaryTree(tree2);
+  let HT = new Map();
+  let op1 = t1.traverse_pre();
+  let op2 = t2.traverse_pre();
+  let oparr = [];
+  op1.forEach((item) => {
+    HT.set(item, item);
+  });
+  op2.forEach((item) => {
+    if (HT.get(item) != null) {
+      oparr.push(item);
+    }
+  });
+  return oparr;
+}
+
 module.exports = {
   HashTable,
   findDuplicates,
+  findBTDuplicates,
 };
