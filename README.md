@@ -23,3 +23,5 @@ To run your tests
 - Please follow the instructions specific to your 401 language, which can be found in the directory below, matching your course.
 
 [array-insert-shift](https://github.com/JayaDeHart/data-structures-and-algorithms/blob/main/array-insert-shift/README.md)
+
+[linked-list](https://github.com/JayaDeHart/data-structures-and-algorithms/blob/main/linked-list/README.md)
