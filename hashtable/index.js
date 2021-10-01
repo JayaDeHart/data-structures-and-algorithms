@@ -16,7 +16,6 @@ class HashTable {
   set(key, value) {
     const index = this._hash(key);
     if (this.holder[index]) {
-      console.log("repeating");
       for (let x = 0; x < this.holder[index].length; x++) {
         if (this.holder[index][x][0] === key) {
           this.holder[index][x][1] = value;
@@ -76,8 +75,22 @@ function findBTDuplicates(tree1, tree2) {
   return oparr;
 }
 
+function leftJoin(hash1, hash2) {
+  let output = [];
+  for (let [key, value] of hash1) {
+    if (hash2.has(key)) {
+      let ant = hash2.get(key);
+      output.push([key, value, ant]);
+    } else {
+      output.push([key, value, null]);
+    }
+  }
+  return output;
+}
+
 module.exports = {
   HashTable,
   findDuplicates,
   findBTDuplicates,
+  leftJoin,
 };
